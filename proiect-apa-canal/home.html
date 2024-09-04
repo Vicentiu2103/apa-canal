@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Firebase Authentication</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         /* Fundalul paginii - imagine locală */
         body {
@@ -16,6 +15,12 @@
             background-repeat: no-repeat;
             margin: 0;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white; /* Text alb pentru toate elementele */
         }
 
         /* Stil pentru butoanele din colțul din dreapta sus */
@@ -28,9 +33,8 @@
 
         /* Stil pentru butoanele adiționale */
         .action-buttons {
-            margin-top: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 10px;
         }
 
@@ -41,49 +45,54 @@
             border-radius: 4px;
             padding: 10px 20px;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .action-button:hover {
             background-color: #0056b3;
         }
 
-        /* Stil pentru căsuța de conținut */
-        .home-box {
-            padding: 20px;
-            max-width: 400px; /* Ajustează dimensiunea maximă a căsuței */
-            margin: auto;
-            background: rgba(255, 255, 255, 0.8); /* Fundal alb semi-transparent pentru text */
-            border-radius: 8px; /* Marginile rotunjite */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Umbra pentru căsuță */
+        /* Stil pentru footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundal semi-transparent */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <!-- Fundalul paginii -->
-    <div class="background-image"></div>
-
-    <!-- Căsuța de conținut -->
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="home-box p-4 shadow rounded bg-white">
-            <h2 class="text-center mb-4">Welcome!</h2>
-            
-            <!-- Butoane adiționale amplasate deasupra mesajului de welcome -->
-            <div class="action-buttons mb-4">
-                <a href="citire.html" class="action-button">Citire index</a>
-                <a href="dovada.html" class="action-button">Dovada plata</a>
-            </div>
-
-            <p id="welcome-message" class="text-center mb-4"></p>
-        </div>
-    </div>
-
     <!-- Butonul de logout -->
     <button id="logout" class="btn btn-danger logout-button">Logout</button>
+
+    <!-- Mesajul de întâmpinare și butoanele adiționale -->
+    <div>
+        <h2 id="welcome-message" class="text-center mb-4">Bine ați venit!</h2>
+        
+        <!-- Butoane adiționale amplasate în centrul paginii -->
+        <div class="action-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSengUMM3fOEhRrLuMxBWGlCi1QZMOYySIBQP-la35SdhbfCyw/viewform?usp=sf_link" class="action-button" target="_blank">Citire index</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSebIrxRkCEsgy1Q0jaEli1SiLgUuqf8OCxm8PDeozo58yiLGg/viewform?usp=sf_link" class="action-button" target="_blank">Dovada plata</a>
+            <a href="https://docs.google.com/spreadsheets/d/1bxbHRuG66_X9ZFc_CvgeJrnbgW8bWFBF/edit?gid=1089134804#gid=1089134804" class="action-button" target="_blank">Documente</a>
+        </div>
+    </div>
 
     <!-- Include Firebase Core SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
     <!-- Include scriptul tău principal după SDK-urile Firebase -->
     <script src="home.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact:</p>
+        <p>Vicentiu Ilie: +40 739 554 520</p>
+        <p>Mihai Tomescu: +40 723 217 811</p>
+        <p>Pentru orice nelămurire sau problemă, nu ezitați să ne contactați!</p>
+    </footer>
 </body>
 </html>
