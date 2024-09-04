@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asigură scalarea corectă pe toate dispozitivele -->
     <title>Home - Firebase Authentication</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -21,6 +21,7 @@
             align-items: center;
             text-align: center;
             color: white; /* Text alb pentru toate elementele */
+            padding: 0 20px; /* Padding pentru a preveni tăierea conținutului pe marginile dispozitivelor mici */
         }
 
         /* Mesajul din colțul din stânga sus */
@@ -31,6 +32,7 @@
             font-weight: bold;
             color: white;
             z-index: 1000;
+            font-size: 1rem; /* Scalabil pe dispozitive mici */
         }
 
         /* Stil pentru butoanele din colțul din dreapta sus */
@@ -39,6 +41,7 @@
             top: 15px;
             right: 15px;
             z-index: 1000; /* Asigură-te că butonul este deasupra altor elemente */
+            font-size: 1rem; /* Scalabil pe dispozitive mici */
         }
 
         /* Stil pentru butoanele adiționale */
@@ -46,6 +49,8 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            width: 100%;
+            max-width: 300px; /* Limitează lățimea pentru dispozitive mari */
         }
 
         .action-button {
@@ -56,6 +61,7 @@
             padding: 10px 20px;
             cursor: pointer;
             text-decoration: none;
+            width: 100%;
         }
 
         .action-button:hover {
@@ -71,7 +77,13 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            font-size: 14px;
+            font-size: 0.875rem; /* Font mic pentru footer, scalabil */
+        }
+
+        @media (max-width: 576px) {
+            .action-button {
+                padding: 8px 16px; /* Redimensionare pentru ecrane mici */
+            }
         }
     </style>
 </head>
@@ -88,7 +100,7 @@
         <div class="action-buttons">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSengUMM3fOEhRrLuMxBWGlCi1QZMOYySIBQP-la35SdhbfCyw/viewform?usp=sf_link" class="action-button" target="_blank">Citire index</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSebIrxRkCEsgy1Q0jaEli1SiLgUuqf8OCxm8PDeozo58yiLGg/viewform?usp=sf_link" class="action-button" target="_blank">Dovada plata</a>
-            <a href="https://docs.google.com/spreadsheets/d/1bxbHRuG66_X9ZFc_CvgeJrnbgW8bWFBF/edit?gid=1089134804#gid=1089134804" class="action-button" target="_blank">Documente</a>
+            <a href="https://docs.google.com/spreadsheets/d/1bxbHRuG66_X9ZFc_CvgeJrnbgW8bWFBF/edit?gid=1089134804#gid=1089134804" class="action-button" target="_blank">Tabel Live</a>
         </div>
     </div>
 
