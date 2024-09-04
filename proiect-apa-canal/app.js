@@ -6,38 +6,28 @@ const firebaseConfig = {
     storageBucket: "evidenta-apa-canal.appspot.com",
     messagingSenderId: "818090004727",
     appId: "1:818090004727:web:b9f9589149fd8b084083f2"
-};
-
+  };
 // Inițializează Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Accesează serviciul de autentificare
 const auth = firebase.auth();
 
-// Gestionare Login cu Email și Parolă
+// Adăugăm funcționalitatea de autentificare prin email și parolă
 document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault();  // Previne reîncărcarea paginii
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            document.getElementById('message').textContent = 'Logare reușită!';
+            // Redirecționează la pagina home.html după autentificare reușită
+            window.location.href = 'home.html';
         })
         .catch((error) => {
-            document.getElementById('message').textContent = 'Eroare la logare: ' + error.message;
-        });
-});
-
-// Gestionare Login cu Google
-document.getElementById('google-login').addEventListener('click', function() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            document.getElementById('message').textContent = 'Logare cu Google reușită!';
-        })
-        .catch((error) => {
-            document.getElementById('message').textContent = 'Eroare la logare cu Google: ' + error.message;
+            // Gestionează erorile
+            document.getElementById('message').textContent = 'Eroare la autentificare: ' + error.message;
+            console.error('Error during email login:', error);
         });
 });
