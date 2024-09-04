@@ -23,6 +23,16 @@
             color: white; /* Text alb pentru toate elementele */
         }
 
+        /* Mesajul din colțul din stânga sus */
+        .login-message {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-weight: bold;
+            color: white;
+            z-index: 1000;
+        }
+
         /* Stil pentru butoanele din colțul din dreapta sus */
         .logout-button {
             position: fixed; /* Plasează butonul în raport cu pagina */
@@ -66,6 +76,7 @@
     </style>
 </head>
 <body>
+
     <!-- Butonul de logout -->
     <button id="logout" class="btn btn-danger logout-button">Logout</button>
 
@@ -94,5 +105,44 @@
         <p>Mihai Tomescu: +40 723 217 811</p>
         <p>Pentru orice nelămurire sau problemă, nu ezitați să ne contactați!</p>
     </footer>
+
+    <script>
+        // Configurare Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyALy5H_NQ4G5tEgiGJIJzNMSweftZf8kCw",
+            authDomain: "evidenta-apa-canal.firebaseapp.com",
+            projectId: "evidenta-apa-canal",
+            storageBucket: "evidenta-apa-canal.appspot.com",
+            messagingSenderId: "818090004727",
+            appId: "1:818090004727:web:b9f9589149fd8b084083f2"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // Verifică starea autentificării
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // Completează mesajul cu numele utilizatorului sau adresa de email dacă numele nu este disponibil
+                const loginMessage = document.getElementById('login-message');
+                loginMessage.textContent = `Ești logat cu utilizatorul ${user.displayName || user.email}`;
+
+                // Alte elemente legate de utilizator, cum ar fi nume, email, etc.
+                document.getElementById('welcome-message').textContent = `Bine ați venit, ${user.displayName || 'utilizator'}!`;
+            } else {
+                // Dacă utilizatorul nu este autentificat, redirecționează la pagina de login
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Logout
+        document.getElementById('logout').addEventListener('click', () => {
+            auth.signOut().then(() => {
+                window.location.href = 'index.html';
+            }).catch(error => {
+                console.error('Error during logout:', error);
+            });
+        });
+    </script>
 </body>
 </html>
