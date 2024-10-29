@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asigură scalarea corectă pe toate dispozitivele -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Firebase Authentication</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -20,8 +20,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white; /* Text alb pentru toate elementele */
-            padding: 0 20px; /* Padding pentru a preveni tăierea conținutului pe marginile dispozitivelor mici */
+            color: white;
+            padding: 0 20px;
         }
 
         /* Mesajul din colțul din stânga sus */
@@ -32,29 +32,29 @@
             font-weight: bold;
             color: white;
             z-index: 1000;
-            font-size: 1rem; /* Scalabil pe dispozitive mici */
+            font-size: 1rem;
         }
 
-        /* Stil pentru butoanele din colțul din dreapta sus */
+        /* Buton logout */
         .logout-button {
-            position: fixed; /* Plasează butonul în raport cu pagina */
+            position: fixed;
             top: 15px;
             right: 15px;
-            z-index: 1000; /* Asigură-te că butonul este deasupra altor elemente */
-            font-size: 1rem; /* Scalabil pe dispozitive mici */
+            z-index: 1000;
+            font-size: 1rem;
         }
 
-        /* Stil pentru butoanele adiționale */
+        /* Butoane adiționale */
         .action-buttons {
             display: flex;
             flex-direction: column;
             gap: 10px;
             width: 100%;
-            max-width: 300px; /* Limitează lățimea pentru dispozitive mari */
+            max-width: 300px;
         }
 
         .action-button {
-            background-color: #007bff; /* Colorare buton */
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 4px;
@@ -68,21 +68,51 @@
             background-color: #0056b3;
         }
 
-        /* Stil pentru footer */
+    /* Stil pentru secțiunea de detalii plată */
+        .payment-details {
+             position: fixed;
+             top: 80px;
+            left: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            color: white;
+            text-align: left;
+            width: 400px; /* Mărește lățimea la 320px */
+            height: auto; /* Înălțimea automată pentru a adapta textul */
+            z-index: 1001;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #007bff;
+        }
+
+.payment-details p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap; /* Evită divizarea textului */
+}
+
+        .payment-details p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
         footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fundal semi-transparent */
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 10px 0;
-            font-size: 0.875rem; /* Font mic pentru footer, scalabil */
+            font-size: 0.875rem;
         }
 
         @media (max-width: 576px) {
             .action-button {
-                padding: 8px 16px; /* Redimensionare pentru ecrane mici */
+                padding: 8px 16px;
             }
         }
     </style>
@@ -101,14 +131,23 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSengUMM3fOEhRrLuMxBWGlCi1QZMOYySIBQP-la35SdhbfCyw/viewform?usp=sf_link" class="action-button" target="_blank">Citire index</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSebIrxRkCEsgy1Q0jaEli1SiLgUuqf8OCxm8PDeozo58yiLGg/viewform?usp=sf_link" class="action-button" target="_blank">Dovada plata</a>
             <a href="https://docs.google.com/spreadsheets/d/1bxbHRuG66_X9ZFc_CvgeJrnbgW8bWFBF/edit?gid=1089134804#gid=1089134804" class="action-button" target="_blank">Tabel Live</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdo4BR12sT839PrK6zoi9ZV8d86PYb2EqEC-NakQ8WhDB_qVA/viewform?usp=sf_link" class="action-button" target="_blank">Reclamatii/Idei/Probleme</a> <!-- Noul buton actualizat -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdo4BR12sT839PrK6zoi9ZV8d86PYb2EqEC-NakQ8WhDB_qVA/viewform?usp=sf_link" class="action-button" target="_blank">Reclamatii/Idei/Probleme</a>
+            <a href="https://acilfov.ro/" class="action-button" target="_blank">Site Apa-Ilfov</a>
         </div>
     </div>
+
+    <!-- Secțiunea de detalii plată -->
+        <div class="payment-details">
+            <p><strong>Cont bancar BRD:</strong> RO02 BRDE 445S V368 0191 4450</p>
+            <p><strong>Cont bancar BCR:</strong> RO82RNCB0091124743540001</p> 
+            <p><strong>Cod client:</strong> 26810</p>
+            <p><strong>Beneficiar:</strong> BURCEA MIRCEA IONUT</p>
+            <p><strong>Detalii extra:</strong> Adresa şi numărul casei dumneavoastră</p>
+        </div>
 
     <!-- Include Firebase Core SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-auth-compat.js"></script>
-    <!-- Include scriptul tău principal după SDK-urile Firebase -->
     <script src="home.js"></script>
 
     <!-- Footer -->
@@ -136,14 +175,10 @@
         // Verifică starea autentificării
         auth.onAuthStateChanged(user => {
             if (user) {
-                // Completează mesajul cu numele utilizatorului sau adresa de email dacă numele nu este disponibil
                 const loginMessage = document.getElementById('login-message');
                 loginMessage.textContent = `Ești logat cu utilizatorul ${user.displayName || user.email}`;
-
-                // Alte elemente legate de utilizator, cum ar fi nume, email, etc.
                 document.getElementById('welcome-message').textContent = `Bine ați venit, ${user.displayName || 'utilizator'}!`;
             } else {
-                // Dacă utilizatorul nu este autentificat, redirecționează la pagina de login
                 window.location.href = 'index.html';
             }
         });
