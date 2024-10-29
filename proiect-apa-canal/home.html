@@ -69,21 +69,21 @@
         }
 
     /* Stil pentru secțiunea de detalii plată */
-        .payment-details {
-             position: fixed;
-             top: 80px;
-            left: 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
-            padding: 20px;
-            color: white;
-            text-align: left;
-            width: 400px; /* Mărește lățimea la 320px */
-            height: auto; /* Înălțimea automată pentru a adapta textul */
-            z-index: 1001;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border: 1px solid #007bff;
-        }
+    .payment-details {
+        position: absolute; /* Schimbă din fixed în absolute */
+        top: 80px;
+        left: 15px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        padding: 20px;
+        color: white;
+        text-align: left;
+        width: auto;
+        height: auto;
+        z-index: 1001;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border: 1px solid #007bff;
+    }
 
 .payment-details p {
     margin: 5px 0;
