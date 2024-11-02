@@ -68,47 +68,6 @@
             background-color: #0056b3;
         }
 
-    /* Stil pentru secțiunea de detalii plată */
-    .payment-details {
-        position: absolute; /* Schimbă din fixed în absolute */
-        top: 60px;
-        left: 15px;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 8px;
-        padding: 20px;
-        color: white;
-        text-align: left;
-        width: auto;
-        height: auto;
-        z-index: 1001;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        border: 1px solid #007bff;
-    }
-
-   /* Stil pentru secțiunea de detalii citire index */
-.index-reading-details {
-    position: absolute;
-    top: 525px; /* Poziționează chenarul sub secțiunea payment-details */
-    left: 15px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
-    padding: 20px;
-    color: white;
-    text-align: left;
-    width: auto;
-    height: auto;
-    z-index: 1001;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid #007bff;
-}
-
-.index-reading-details p {
-    margin: 5px 0;
-    font-size: 0.95rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
     .index-reading-details p {
         margin: 5px 0;
         font-size: 0.95rem;
@@ -164,24 +123,9 @@
             <a href="https://docs.google.com/spreadsheets/d/1bxbHRuG66_X9ZFc_CvgeJrnbgW8bWFBF/edit?gid=1089134804#gid=1089134804" class="action-button" target="_blank">Tabel Live</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdo4BR12sT839PrK6zoi9ZV8d86PYb2EqEC-NakQ8WhDB_qVA/viewform?usp=sf_link" class="action-button" target="_blank">Reclamatii/Idei/Probleme</a>
             <a href="https://acilfov.ro/" class="action-button" target="_blank">Site Apa-Ilfov</a>
+            <a href="detalii.html" class="action-button" target="_blank">Detalii</a>
         </div>
     </div>
-
-    <!-- Secțiunea de detalii citire index -->
-        <div class="index-reading-details">
-            <p><strong>Dată citire index:</strong> 28 ale lunii. Plus-minus, 1-2 zile.</p>
-            <p>Plata cât mai curând posibil.</p>
-            <p>Vă rog să fiţi proactivi şi să nu uitaţi.</p>
-        </div>
-
-    <!-- Secțiunea de detalii plată -->
-        <div class="payment-details">
-            <p><strong>Cont bancar BRD:</strong> RO02BRDE445SV36801914450</p>
-            <p><strong>Cont bancar BCR:</strong> RO82RNCB0091124743540001</p> 
-            <p><strong>Cod client:</strong> 26810</p>
-            <p><strong>Beneficiar:</strong> APA ILFOV S.A.</p>
-            <p><strong>Detalii extra:</strong> Adresa şi numărul casei dumneavoastră</p>
-        </div>
 
     <!-- Include Firebase Core SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app-compat.js"></script>
